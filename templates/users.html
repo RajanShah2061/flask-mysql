@@ -1,0 +1,49 @@
+<style>
+    table{
+        width: 100%;
+    }
+    th,td{
+        padding: 10px;
+    }
+    .head{
+        background-color: blueviolet;
+    }
+    .head th{
+        color: whitesmoke;
+    }
+    th a{
+        background-color: green;
+        color: white;
+        padding: 6px;
+    }
+    .btndelete{
+        background-color: brown;
+        color: white;
+    }
+    .btnadd{
+        background-color: darkblue;
+        color: white;
+        padding: 10px;
+        border-radius: 7px;
+        margin: 20px;
+    }
+</style>
+<table border="1">
+    <tr>
+        <th>Sn</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <th></th>
+        <th>{{ user.userame }}</th>
+        <th>{{ user.email }}</th>
+        <th>
+            <a href="{{url_for('updateuser',id=user.id)}}">Update</a>
+            <a href="{{url_for('updateuser',id=user.id)}}"class="btndelete"></a>
+        </th>
+    </tr>
+{% endfor %}
+</table>
